@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0; url=/311adapter/">
-  <title>Redirecting...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>311adapter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: black;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: sans-serif;
+      overflow: hidden;
+    }
+
+    .logo, .product-container {
+      position: absolute;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .logo {
+      width: 150px;
+      animation: grow 2.5s ease forwards;
+      z-index: 2;
+    }
+
+    @keyframes grow {
+      0% { transform: scale(1); opacity: 1; }
+      70% { transform: scale(1.8); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .product-container {
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product {
+      width: 90vmin;
+      height: 90vmin;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      background: white;
+      color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to product page. If not redirected, <a href="/311adapter/">click here</a>.</p>
+  <img src="/Qrpage/Picsart_25-04-19_22-39-28-048.jpg" alt="Logo" class="logo" id="logo"/>
+
+  <div class="product-container" id="productContainer">
+    <img src="/Qrpage/Picsart_25-05-05_02-04-41-286.png" alt="311adapter" class="product"/>
+    <a href="https://akasabearing.co.in" class="button" target="_blank">Visit Website</a>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("logo").style.display = "none";
+      const product = document.getElementById("productContainer");
+      product.style.opacity = 1;
+    }, 2500); // logo shows for 2.5 sec
+  </script>
 </body>
 </html>
